@@ -42,11 +42,10 @@ eureka:
  #         - RemoveRequestHeader= Cookie,Set-Cookie
 spring:
   cloud:
-    loadbalancer.ribbon.enabled: false
-    discovery.locator:
-        enabled: true
-        lowerCaseServiceId: true
     gateway:
+        discovery.locator:
+          enabled: true
+          lowerCaseServiceId: true
         routes:
         - id: licensing-service
           uri: lb://licensing-service
@@ -54,7 +53,6 @@ spring:
           - Path=/license/**
           filters:
           - RewritePath=/license/(?<path>.*), /$\{path}
-          - RemoveRequestHeader= Cookie,Set-Cookie
     
 
 keycloak:
