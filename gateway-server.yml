@@ -43,9 +43,6 @@ eureka:
 spring:
   cloud:
     gateway:
-        discovery.locator:
-          enabled: true
-          lowerCaseServiceId: true
         routes:
         - id: licensing-service
           uri: lb://licensing-service
