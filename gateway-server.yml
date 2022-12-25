@@ -42,6 +42,7 @@ eureka:
  #         - RemoveRequestHeader= Cookie,Set-Cookie
 spring:
   cloud:
+    loadbalancer.ribbon.enabled: false
     gateway:
         routes:
         - id: licensing-service
@@ -50,6 +51,7 @@ spring:
           - Path=/license/**
           filters:
           - RewritePath=/license/(?<path>.*), /$\{path}
+          - RemoveRequestHeader= Cookie,Set-Cookie
     
 
 keycloak:
