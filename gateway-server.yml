@@ -43,6 +43,9 @@ eureka:
 spring:
   cloud:
     loadbalancer.ribbon.enabled: false
+    discovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
     gateway:
         routes:
         - id: licensing-service
